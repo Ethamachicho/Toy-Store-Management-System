@@ -1,9 +1,0 @@
-# Stores File Format: city|hours
-# Each line represents one store
-# Lines starting with # are comments and will be ignored
-
-Los Angeles|9AM - 9PM
-San Diego|10AM - 8PM
-Las Vegas|24 Hours
-San Jose|9AM - 7PM
-Pleasanton|6AM - 7PM
