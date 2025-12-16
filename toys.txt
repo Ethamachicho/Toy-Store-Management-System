@@ -1,0 +1,14 @@
+# Toys File Format: name|isDisney|stock|price|blackFriday
+# Each line represents one toy
+# isDisney and blackFriday should be 'true' or 'false'
+# Lines starting with # are comments and will be ignored
+
+Buzz Lightyear|true|20|34.99|true
+Hot Wheels|false|50|12.99|false
+Lego Set|false|15|89.99|true
+Barbie Doll|false|10|49.99|false
+Mickey Mouse Plushie|true|35|19.99|true
+Nerf Gun|false|40|39.99|false
+Elsa Doll|true|18|29.99|true
+RC Car|false|22|24.99|false
+Rubik's Cube|false|30|14.99|false
