@@ -276,8 +276,10 @@ public class ToyStore {
         System.out.println("-".repeat(50));
         System.out.println("1. Update Store");
         System.out.println("2. Update Toy");
-        System.out.println("3. Back to Main Menu");
-        System.out.print("Enter your choice (1-3): ");
+        System.out.println("3. Delete Store");
+        System.out.println("4. Delete Toy");
+        System.out.println("5. Back to Main Menu");
+        System.out.print("Enter your choice (1-5): ");
         
         try {
             int choice = Integer.parseInt(scanner.nextLine().trim());
@@ -289,6 +291,12 @@ public class ToyStore {
                     updateToy();
                     break;
                 case 3:
+                    deleteStore();
+                    break;
+                case 4:
+                    deleteToy();
+                    break;
+                case 5:
                     return;
                 default:
                     System.out.println("Invalid choice!");
@@ -370,6 +378,33 @@ public class ToyStore {
                 default:
                     System.out.println("Invalid choice!");
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Please enter a valid number!");
+        }
+    }
+
+    private static void deleteStore() {
+        if (stores.isEmpty()) {
+            System.out.println("\nNo stores available to delete!");
+            return;
+        }
+
+        System.out.println("\n--- Available Stores ---");
+        for (int i = 0; i < stores.size(); i++) {
+            System.out.println((i + 1) + ". " + stores.get(i));
+        }
+
+        System.out.print("\nEnter store number to delete: ");
+        try {
+            int index = Integer.parseInt(scanner.nextLine().trim()) - 1;
+            if (index < 0 || index >= stores.size()) {
+                System.out.println("Error: Invalid store number!");
+                return;
+            }
+
+            Store removedStore = stores.remove(index);
+            System.out.println("✓ Store '" + removedStore.getCity() + "' deleted successfully!");
+            saveStoresToFile();
         } catch (NumberFormatException e) {
             System.out.println("Error: Please enter a valid number!");
         }
@@ -756,7 +791,7 @@ public class ToyStore {
     }
 
     // Total profit after applying Black Friday discounts (40% off)
-    public static double SalesProfits(ArrayList<Toy> toys) {
+    private static double SalesProfits(ArrayList<Toy> toys) {
         double total = 0;
         for (Toy t : toys) {
             double price = t.getPrice();
@@ -766,5 +801,32 @@ public class ToyStore {
             total += t.getStock() * price;
         }
         return Math.round(total * 100.0) / 100.0;
+    }
+
+    private static void deleteToy() {
+        if (toys.isEmpty()) {
+            System.out.println("\nNo toys available to delete!");
+            return;
+        }
+
+        System.out.println("\n--- Available Toys ---");
+        for (int i = 0; i < toys.size(); i++) {
+            System.out.println((i + 1) + ". " + formatToyInfo(toys.get(i)));
+        }
+
+        System.out.print("\nEnter toy number to delete: ");
+        try {
+            int index = Integer.parseInt(scanner.nextLine().trim()) - 1;
+            if (index < 0 || index >= toys.size()) {
+                System.out.println("Error: Invalid toy number!");
+                return;
+            }
+
+            Toy removedToy = toys.remove(index);
+            System.out.println("✓ Toy '" + removedToy.getName() + "' deleted successfully!");
+            saveToysToFile();
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Please enter a valid number!");
+        }
     }
 }
