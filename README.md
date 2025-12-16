@@ -1,6 +1,4 @@
-================================================================================
                     TOY STORE DATA FILES FORMAT GUIDE
-================================================================================
 
 The Toy Store Management System uses two text files to store data:
 1. stores.txt - Contains all store information
@@ -9,9 +7,8 @@ The Toy Store Management System uses two text files to store data:
 You can manually edit these files to add, modify, or remove stores and toys.
 The program will automatically load your changes when it starts.
 
-================================================================================
+
                               STORES.TXT FORMAT
-================================================================================
 
 Format: city|hours
 
@@ -30,9 +27,8 @@ Rules:
 - Lines starting with # are comments and will be ignored
 - Empty lines are ignored
 
-================================================================================
+
                                TOYS.TXT FORMAT
-================================================================================
 
 Format: name|isDisney|stock|price|blackFriday
 
@@ -58,9 +54,8 @@ Rules:
 - Lines starting with # are comments and will be ignored
 - Empty lines are ignored
 
-================================================================================
+
                               IMPORTANT NOTES
-================================================================================
 
 1. The program automatically saves changes when you:
    - Add a new store or toy through the menu
@@ -79,6 +74,3 @@ Rules:
 4. Invalid lines in the files will be skipped with a warning message
 
 5. Comments (lines starting with #) are preserved when the program saves
-
-================================================================================
-
